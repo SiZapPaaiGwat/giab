@@ -29,4 +29,5 @@ github.issues.repoIssues({
 
   var str = list.map(utils.formatIssueItem).join('\n')
   fs.writeFileSync(CONST.README_NAME, utils.replaceREADME(readme, str, CONST.REG))
+  console.log(`${list.length} blog posts have been inserted to README.md`)
 })
