@@ -1,0 +1,28 @@
+{
+  "name": "giab",
+  "version": "1.0.0",
+  "description": "a tool for \"giab\" (github issue as blog) guys ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simongfxu/giab.git"
+  },
+  "keywords": [
+    "github",
+    "issue",
+    "giab",
+    "blog"
+  ],
+  "author": "simonxu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simongfxu/giab/issues"
+  },
+  "homepage": "https://github.com/simongfxu/giab#readme",
+  "dependencies": {
+    "github": "^0.2.4"
+  }
+}
