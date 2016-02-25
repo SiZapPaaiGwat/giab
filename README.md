@@ -1,5 +1,7 @@
 # giab
-a tool for "giab" (github issue as blog) guys
+A tool for "giab" (github issue as blog) guys
+
+This tool will generate an issue(blog post) list in your README.md.
 
 ## Install
 
