@@ -1,1 +1,1 @@
-require('src/giab')
+require('./src/giab')
