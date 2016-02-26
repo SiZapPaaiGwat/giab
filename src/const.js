@@ -25,5 +25,7 @@ module.exports = {
   RC_SAMPLE: RC_SAMPLE,
   // flag用于评级文章参与度
   FIRE_LAG: ':fire:',
-  HEART_FLAG: ':heart:'
+  HEART_FLAG: ':heart:',
+  MAX_FIRE_SIZE: 5,
+  MIN_HEART_SIZE: 100
 }

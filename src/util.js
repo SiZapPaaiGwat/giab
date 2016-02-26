@@ -20,7 +20,8 @@ exports.replaceREADME = function replaceREADME(content, issueListString, reg) {
 
 exports.formatIssueItem = function formatIssueItem(item) {
   var date = new Date(item.created_at).toLocaleDateString()
-  var flag = item.comments >= 100 ? CONST.HEART_FLAG : repeat(CONST.FIRE_LAG, item.comments / 20)
+  var flag = item.comments >= CONST.MIN_HEART_SIZE ? CONST.HEART_FLAG :
+    repeat(CONST.FIRE_LAG, Math.floor(item.comments / CONST.MAX_FIRE_SIZE))
   return `> * [${date} ${flag} ${item.title}](${item.html_url})`
 }
 
