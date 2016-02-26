@@ -22,5 +22,8 @@ module.exports = {
   END_TAG: END_TAG,
   CWD: CWD,
   REG: new RegExp(`${START_TAG}(\n|.)+${END_TAG}`),
-  RC_SAMPLE: RC_SAMPLE
+  RC_SAMPLE: RC_SAMPLE,
+  // flag用于评级文章参与度
+  FIRE_LAG: ':fire:',
+  HEART_FLAG: ':heart:'
 }

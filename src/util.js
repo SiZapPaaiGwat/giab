@@ -1,6 +1,14 @@
 var CONST = require('./const')
 var fs = require('fs')
 
+function repeat(str, times) {
+  var ret = ''
+  for(var i = 0; i < times; i += 1) {
+    ret += str
+  }
+  return ret
+}
+
 exports.getGiabRC = function getGiabRC(filename) {
   return JSON.parse(fs.readFileSync(filename, 'utf8'))
 }
@@ -12,7 +20,8 @@ exports.replaceREADME = function replaceREADME(content, issueListString, reg) {
 
 exports.formatIssueItem = function formatIssueItem(item) {
   var date = new Date(item.created_at).toLocaleDateString()
-  return `> * [${date} - ${item.title}](${item.html_url})`
+  var flag = item.comments >= 100 ? CONST.HEART_FLAG : repeat(CONST.FIRE_LAG, item.comments / 20)
+  return `> * [${date} ${flag} ${item.title}](${item.html_url})`
 }
 
 exports.checkRC = function checkRC(rc) {
@@ -20,7 +29,15 @@ exports.checkRC = function checkRC(rc) {
     throw new Error(`.giabrc not found.\n${CONST.RC_SAMPLE}`)
   }
 
-  if (!rc.issues || !rc.issues.owner || !rc.issues.repo) {
+  if (!rc.issues) {
     throw new Error(`.giabrc config missing.\n${CONST.RC_SAMPLE}`)
+  }
+
+  if (Array.isArray(rc.issues)) {
+    if (rc.issues.some(function(item) {
+      return !item.owner || !item.repo
+    })) {
+      throw new Error(`.giabrc issues config error.`)
+    }
   }
 }

@@ -37,6 +37,8 @@ your articles will be shown here
 }
 ```
 
+GitHub token also supported to hide your password.
+
 5) Edit .gitignore file in your repository's root dir, add a line
 
 ```html
