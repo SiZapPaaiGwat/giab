@@ -17,10 +17,14 @@ utils.checkRC(rc)
 var github = giab.init(rc)
 var outputFilename = CONST.output ? path.normalize(CONST.output.filename) : CONST.README_NAME
 
+function handleError(err) {
+  console.error(err)
+}
+
 if (Array.isArray(rc.issues)) {
   Promise.map(rc.issues, function(item) {
     return github.issues.repoIssuesAsync(item.owner, item.repo)
-  }, {concurrency: 5})
+  }, {concurrency: 2})
   .then(function(blogs) {
     var items = []
     var totalIssue = 0
@@ -35,7 +39,7 @@ if (Array.isArray(rc.issues)) {
       ${totalIssue} blog posts have been inserted to ${CONST.README_NAME}.
       Repository number: ${rc.issues.length}.
     `)
-  })
+  }).catch(handleError)
 } else if (typeof rc.issues === 'object') {
   github.issues.repoIssuesAsync(rc.issues.owner, rc.issues.repo).then(function(list) {
     var str = list.map(utils.formatIssueItem).join('\n')
@@ -44,7 +48,7 @@ if (Array.isArray(rc.issues)) {
     console.log(`
       ${list.length} blog posts have been inserted to ${CONST.README_NAME}
     `)
-  })
+  }).catch(handleError)
 } else {
   console.warn(`You have not set .giabrc issues.`)
 }
