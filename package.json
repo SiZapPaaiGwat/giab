@@ -1,6 +1,6 @@
 {
   "name": "giab",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a tool for \"giab\" (github issue as blog) guys ",
   "main": "index.js",
   "scripts": {
