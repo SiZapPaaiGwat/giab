@@ -55,4 +55,8 @@ node node_modules/giab
 
 That is all!
 
-[See an example](https://github.com/simongfxu/simongfxu.github.com)
+## Example
+
+> * [My personal blog](https://github.com/simongfxu/simongfxu.github.com)
+> * [giab-code - learn js from famous framework's code fragment](https://github.com/simongfxu/giab-code)
+> * [giab-issue - read blog post from giab buys](https://github.com/simongfxu/giab-issue)

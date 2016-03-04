@@ -15,7 +15,11 @@ exports.getGiabRC = function getGiabRC(filename) {
 
 exports.replaceREADME = function replaceREADME(content, issueListString, reg) {
   var blogList = `${CONST.START_TAG}\n\n${issueListString.trim()}\n\n${CONST.END_TAG}`
-  return content.replace(reg, blogList)
+  if (!content.match(reg)) {
+    return `${content}\n\n${blogList}`
+  } else {
+    return content.replace(reg, blogList)
+  }
 }
 
 exports.formatIssueItem = function formatIssueItem(item) {
