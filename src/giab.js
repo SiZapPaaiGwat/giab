@@ -20,7 +20,8 @@ exports.init = function(rc) {
           return
         }
 
-        resolve(list)
+        // github api treat pr as issue
+        resolve(list.filter(item => !item.pull_request))
       })
     })
   }
