@@ -21,7 +21,9 @@ exports.init = function(rc) {
         }
 
         // github api treat pr as issue
-        resolve(list.filter(item => !item.pull_request))
+        resolve(list.filter(function(item) {
+          return item.pull_request === undefined
+        }))
       })
     })
   }
